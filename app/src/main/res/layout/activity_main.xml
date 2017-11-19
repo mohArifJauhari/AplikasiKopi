@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    tools:context="com.mahesaiqbal.justjava.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/jumlah_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/tambah"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="+"
+            android:onClick="tambah"
+            android:layout_below="@id/jumlah_text_view"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/jumlah_kopi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="18sp"
+            android:layout_below="@id/jumlah_text_view"
+            android:layout_toRightOf="@id/tambah"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:layout_toEndOf="@id/tambah" />
+
+        <Button
+            android:id="@+id/kurang"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="-"
+            android:onClick="kurang"
+            android:layout_below="@id/jumlah_text_view"
+            android:layout_toRightOf="@id/jumlah_kopi"
+            android:layout_toEndOf="@id/jumlah_kopi" />
+
+        <TextView
+            android:id="@+id/harga_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textAllCaps="true"
+            android:layout_below="@id/tambah"/>
+
+        <TextView
+            android:id="@+id/harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 0"
+            android:textSize="18sp"
+            android:layout_below="@id/harga_text_view"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/hitung_harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:onClick="totalHarga"
+            android:layout_below="@id/harga"/>
+
+    </RelativeLayout>
+
+</ScrollView>
