@@ -1,20 +1,28 @@
 package com.mahesaiqbal.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private int jumlahKopi = 0;
-    private int hargaKopi = 3000;
+    private final int hargaKopi = 3000;
+    CheckBox checkKrim, checkCoklat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        checkKrim = (CheckBox) findViewById(R.id.check_krim);
+        checkCoklat = (CheckBox) findViewById(R.id.check_coklat);
     }
 
     public void tambah(View view) {
@@ -42,4 +50,54 @@ public class MainActivity extends AppCompatActivity {
         txtJumlahKopi.setText("" + angka);
     }
 
+    public void pesan(View view) {
+        String toppingKrim = "";
+        String toppingCoklat = "";
+        Boolean ckKrim = checkKrim.isChecked();
+        Boolean ckCoklat = checkCoklat.isChecked();
+
+        if(ckKrim) {
+            //Menghasilkan nilai true or false
+            toppingKrim = "Krim, ";
+        }
+        if(ckCoklat) {
+            //Menghasilkan nilai true or false
+            toppingCoklat = "Coklat,  ";
+        }
+        int totalHarga = tampilTotalHarga(ckKrim, ckCoklat);
+        String tampilkanHarga = tampilkanHarga(totalHarga, toppingKrim, toppingCoklat);
+
+        //Mengirim laporan pemesanan ke email
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Laporan pemesanan");
+        intent.putExtra(Intent.EXTRA_TEXT, tampilkanHarga);
+        if(intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    public String tampilkanHarga(int harga, String ckKrim, String ckCoklat) {
+        EditText edtNama = (EditText)findViewById(R.id.input_nama);
+        String nama = edtNama.getText().toString();
+        String pesannya = "Terima kasih, " + nama +  " telah membeli kopi \n";
+        pesannya += "\nTopping = " + ckKrim + ckCoklat;
+        pesannya += "\nHarga = " + harga;
+        return pesannya;
+    }
+
+    public int tampilTotalHarga(Boolean ckKrim, Boolean ckCoklat) {
+        int hargaAwal = 0;
+        int hargaAkhir;
+
+        if(ckKrim) {
+            hargaAwal += 2000;
+        }
+        if(ckCoklat) {
+            hargaAwal += 1500;
+        }
+
+        hargaAkhir = jumlahKopi * hargaKopi + hargaAwal;
+        return hargaAkhir;
+    }
 }

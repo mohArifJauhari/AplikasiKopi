@@ -10,78 +10,111 @@
     android:paddingBottom="@dimen/activity_horizontal_margin"
     tools:context="com.mahesaiqbal.justjava.MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/input_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nama"
+            android:inputType="textPersonName"
+            android:capitalize="words"
+            android:layout_marginBottom="16dp"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toppings"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
+            android:textAllCaps="true"/>
+        
+        <CheckBox
+            android:id="@+id/check_krim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/krim"
+            android:textSize="16sp"/>
+
+        <CheckBox
+            android:id="@+id/check_coklat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coklat"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/jumlah_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah"
+            android:text="@string/jumlah"
             android:textSize="18sp"
             android:layout_marginBottom="16dp"
-            android:textAllCaps="true"/>
+            android:layout_marginTop="16dp"
+            android:textAllCaps="true" />
 
-        <Button
-            android:id="@+id/tambah"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="+"
-            android:onClick="tambah"
-            android:layout_below="@id/jumlah_text_view"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:id="@+id/jumlah_kopi"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="18sp"
-            android:layout_below="@id/jumlah_text_view"
-            android:layout_toRightOf="@id/tambah"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="16dp"
-            android:layout_toEndOf="@id/tambah" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/kurang"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="-"
-            android:onClick="kurang"
-            android:layout_below="@id/jumlah_text_view"
-            android:layout_toRightOf="@id/jumlah_kopi"
-            android:layout_toEndOf="@id/jumlah_kopi" />
+            <Button
+                android:id="@+id/tambah"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="@string/tambah"
+                android:onClick="tambah"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/jumlah_kopi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kosong"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/tambah"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_toEndOf="@id/tambah" />
+
+            <Button
+                android:id="@+id/kurang"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="@string/kurang"
+                android:onClick="kurang"
+                android:layout_toRightOf="@id/jumlah_kopi"
+                android:layout_toEndOf="@id/jumlah_kopi" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/harga_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Harga"
+            android:text="@string/harga"
             android:textSize="18sp"
-            android:layout_marginBottom="16dp"
-            android:textAllCaps="true"
-            android:layout_below="@id/tambah"/>
+            android:layout_marginBottom="8dp"
+            android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/harga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rp 0"
+            android:text="@string/rp_0"
             android:textSize="18sp"
-            android:layout_below="@id/harga_text_view"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="8dp"/>
 
         <Button
-            android:id="@+id/hitung_harga"
+            android:id="@+id/order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total"
-            android:onClick="totalHarga"
-            android:layout_below="@id/harga"/>
+            android:text="@string/order"
+            android:onClick="totalHarga" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </ScrollView>
