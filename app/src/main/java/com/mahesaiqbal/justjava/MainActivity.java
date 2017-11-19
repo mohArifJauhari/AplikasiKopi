@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int jumlahKopi = 0;
     private final int hargaKopi = 3000;
+    private int totalHarga = 0;
     CheckBox checkKrim, checkCoklat;
 
     @Override
@@ -21,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        checkKrim = (CheckBox) findViewById(R.id.check_krim);
-        checkCoklat = (CheckBox) findViewById(R.id.check_coklat);
+        checkKrim = findViewById(R.id.check_krim);
+        checkCoklat = findViewById(R.id.check_coklat);
     }
 
     public void tambah(View view) {
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         txtJumlahKopi.setText("" + angka);
     }
 
-    public void pesan(View view) {
+    public void order(View view) {
         String toppingKrim = "";
         String toppingCoklat = "";
         Boolean ckKrim = checkKrim.isChecked();
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String tampilkanHarga(int harga, String ckKrim, String ckCoklat) {
-        EditText edtNama = (EditText)findViewById(R.id.input_nama);
+        EditText edtNama = findViewById(R.id.input_nama);
         String nama = edtNama.getText().toString();
         String pesannya = "Terima kasih, " + nama +  " telah membeli kopi \n";
         pesannya += "\nTopping = " + ckKrim + ckCoklat;
@@ -87,17 +88,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int tampilTotalHarga(Boolean ckKrim, Boolean ckCoklat) {
-        int hargaAwal = 0;
+        totalHarga = hargaKopi * jumlahKopi;
         int hargaAkhir;
 
         if(ckKrim) {
-            hargaAwal += 2000;
+            totalHarga += 2000;
         }
         if(ckCoklat) {
-            hargaAwal += 1500;
+            totalHarga += 3000;
         }
 
-        hargaAkhir = jumlahKopi * hargaKopi + hargaAwal;
-        return hargaAkhir;
+        return totalHarga;
     }
 }
