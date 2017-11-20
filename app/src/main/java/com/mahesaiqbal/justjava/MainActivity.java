@@ -41,10 +41,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void totalHarga(View view) {
-        TextView totalHarga = (TextView) findViewById(R.id.harga);
-        totalHarga.setText("Rp " + hargaKopi * jumlahKopi);
-    }
 
     public void tampilkan(int angka) {
         TextView txtJumlahKopi = (TextView) findViewById(R.id.jumlah_kopi);
@@ -66,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
             toppingCoklat = "Coklat,  ";
         }
         int totalHarga = tampilTotalHarga(ckKrim, ckCoklat);
+
+        TextView totalHargaTextView = (TextView) findViewById(R.id.harga);
+        totalHargaTextView.setText("Rp " + totalHarga);
         String tampilkanHarga = tampilkanHarga(totalHarga, toppingKrim, toppingCoklat);
 
         //Mengirim laporan pemesanan ke email
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     public String tampilkanHarga(int harga, String ckKrim, String ckCoklat) {
         EditText edtNama = findViewById(R.id.input_nama);
         String nama = edtNama.getText().toString();
-        String pesannya = "Terima kasih, " + nama +  " telah membeli kopi \n";
+        String pesannya = "Terima kasih, " + nama +  " telah membeli " + jumlahKopi + " kopi \n";
         pesannya += "\nTopping = " + ckKrim + ckCoklat;
         pesannya += "\nHarga = " + harga;
         return pesannya;
@@ -89,15 +88,15 @@ public class MainActivity extends AppCompatActivity {
 
     public int tampilTotalHarga(Boolean ckKrim, Boolean ckCoklat) {
         totalHarga = hargaKopi * jumlahKopi;
-        int hargaAkhir;
+        int hargaToping = 0;
 
         if(ckKrim) {
-            totalHarga += 2000;
+            hargaToping +=  (2000 * jumlahKopi);
         }
         if(ckCoklat) {
-            totalHarga += 3000;
+            hargaToping += (3000 * jumlahKopi);
         }
 
-        return totalHarga;
+        return totalHarga + hargaToping;
     }
 }
