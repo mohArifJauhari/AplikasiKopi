@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_vertical_margin"
-    android:paddingTop="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin"
     tools:context="com.mahesaiqbal.justjava.MainActivity">
 
     <LinearLayout
@@ -19,42 +18,42 @@
             android:id="@+id/input_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nama"
-            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"
             android:capitalize="words"
-            android:layout_marginBottom="16dp"/>
-        
+            android:hint="@string/nama"
+            android:inputType="textPersonName" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toppings"
-            android:textSize="18sp"
             android:layout_marginBottom="8dp"
-            android:textAllCaps="true"/>
-        
+            android:text="@string/toppings"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
+
         <CheckBox
             android:id="@+id/check_krim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/krim"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/check_coklat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/coklat"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/jumlah_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/jumlah"
-            android:textSize="18sp"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:textAllCaps="true" />
+            android:text="@string/jumlah"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -64,30 +63,30 @@
                 android:id="@+id/tambah"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:text="@string/tambah"
+                android:layout_marginBottom="16dp"
                 android:onClick="tambah"
-                android:layout_marginBottom="16dp"/>
+                android:text="@string/tambah" />
 
             <TextView
                 android:id="@+id/jumlah_kopi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/kosong"
-                android:textSize="18sp"
-                android:layout_toRightOf="@id/tambah"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="16dp"
-                android:layout_toEndOf="@id/tambah" />
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/tambah"
+                android:layout_toRightOf="@id/tambah"
+                android:text="@string/kosong"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/kurang"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:text="@string/kurang"
-                android:onClick="kurang"
+                android:layout_toEndOf="@id/jumlah_kopi"
                 android:layout_toRightOf="@id/jumlah_kopi"
-                android:layout_toEndOf="@id/jumlah_kopi" />
+                android:onClick="kurang"
+                android:text="@string/kurang" />
 
         </RelativeLayout>
 
@@ -95,25 +94,25 @@
             android:id="@+id/harga_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/harga"
-            android:textSize="18sp"
             android:layout_marginBottom="8dp"
-            android:textAllCaps="true" />
+            android:text="@string/harga"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/harga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/rp_0"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/order"
-            android:onClick="order" />
+            android:onClick="order"
+            android:text="@string/order" />
 
     </LinearLayout>
 
